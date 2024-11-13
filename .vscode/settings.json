@@ -1,0 +1,29 @@
+{                                         
+  "workbench.colorCustomizations": {
+    "tree.indentGuidesStroke": "#00ff00",
+    "workbench.tree.renderIndentGuides": "always"
+  },
+  "workbench.tree.indent": 26, 
+  "editor.mouseWheelZoom": true, // for zoom in & out font size with Ctrl+ mouse scroll
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/bun.lockb": true,
+    "**/node_modules": true,
+    "**/.gitignore": true,
+    "package-lock.json": true,
+    "package.json": true,
+    ".prettierignore": true,
+    ".prettierrc": true,
+    ".npmrc": true,
+    // "Dockerfile": true,
+    "postcss.config.js": true,
+    "eslint.config.js": true,
+    ".svelte-kit/": true,
+    "build/": true
+  }
+}
