@@ -1,5 +1,6 @@
 import type { Handle } from '@sveltejs/kit';
 import * as auth from '$lib/server/auth.js';
+import { sequence } from '@sveltejs/kit/hooks';
 
 const handleAuth: Handle = async ({ event, resolve }) => {
 	const sessionToken = event.cookies.get(auth.sessionCookieName);
@@ -22,4 +23,16 @@ const handleAuth: Handle = async ({ event, resolve }) => {
 	return resolve(event);
 };
 
-export const handle: Handle = handleAuth;
+const healthcheck: Handle = async ({ event, resolve }) => {
+	if (event.url.pathname === '/healthcheck') {
+		return new Response('OK', {
+			headers: {
+				'Content-Type': 'text/plain'
+			}
+		});
+	}
+
+	return resolve(event);
+};
+
+export const handle = sequence(healthcheck,handleAuth);
